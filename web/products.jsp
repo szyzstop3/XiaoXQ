@@ -470,6 +470,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col-md-2" style="background-color: lightgray">
 		<div class="row">
 
+
 			<h1 class="center-block" style="background-color: #d54949;line-height: 3;color: white"><b>||Top Selling List||</b></h1>
 		</div>
 		<div class="row">

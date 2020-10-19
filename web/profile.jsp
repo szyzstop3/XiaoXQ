@@ -17,7 +17,6 @@
 		}
 
 		.mysubmit {
-
 			-webkit-transition-duration: 0.4s;
 
 			transition-duration: 0.4s;

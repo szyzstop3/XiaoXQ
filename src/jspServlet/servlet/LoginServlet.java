@@ -61,9 +61,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("realName", customer1.getName());
             session.setAttribute("gender", customer1.getGender());
             session.setAttribute("address", customer1.getAddress());
-//            System.out.println(customer1.getAddress());
-//            System.out.println(customer1.getName());
-//            System.out.println(customer1.getGender());
+            session.setAttribute("password", customer1.getPassword());
             //end add
             resp.sendRedirect("./index(welcome).jsp");
         }else{

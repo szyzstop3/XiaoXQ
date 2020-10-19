@@ -228,10 +228,105 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---->	
 
 <!---->
-<script src="js/bootstrap.js"> </script>
-</div>
+<!-- <script src="js/bootstrap.js"> </script> -->
+<script src="js/bootstrap-3.4.0.js"></script>
+<script type="text/jsp">
+  <%String account=(String)session.getAttribute("username");%>
+  <%String realname=(String)session.getAttribute("realName");%>
+  <%String gender=(String)session.getAttribute("gender");%>
+  <%String addr=(String)session.getAttribute("address");%>
+
+  <%String password=(String)session.getAttribute("password");%>
+</script>
+
+<script type="text/jsp">
+<!--  此处加入检测页面是否有Attribute需要提示内容。-->
+  <%String msg = (String)session.getAttribute("message");%>
+</script>
+
+
+<script type="javascript">
+  if(<%=msg%> != null) {
+      alert(<%=msg%>);
+  }
+</script>
+
+<script type="text/jsp">
+<!--此处将msg信息归零-->
+  <%
+  msg = null;
+  %>
+</script>
+
+
+
+  <script src="js/Profile.js"></script>
+
+<div id="profileWrap">
+  <div id="borderArea">
+    <div id="ContentPanel">
+      <h2 id="ProfileTitle">My Profile</h2>
+      <br>
+      <br>
+      <div class="info">Your account:
+        <div class="infocontent"><%=account%></div>
+      </div>
+      <div class="info">Your Real Name:
+        <div class="infocontent"><%=realname%></div>
+      </div>
+      <div class="info">Your gender:
+        <div class="infocontent"><%=gender%></div>
+      </div>
+      <div class="info">Your address:
+        <div class="infocontent"><%=addr%></div>
+      </div>
+    </div>
+    <br>
+    <button type="button" class="btn btn-warning" id="changepibutton" onClick="showorclose('changeinfobox',1)">Change Profile Info</button>
+    <button type="button" class="btn btn-warning" id="changepwbutton" onclick="showorclose('changepwbox', 1)">Change Password</button>
+  </div>
 </div>
 
+<div id="changeinfobox" class="changebox">
+  <button type="button" class="btn btn-danger" id="closechangeinfobtn" onClick="showorclose('changeinfobox',0)">Close</button>
+<div class="cif-inputbox" id="pwcheck">
+    <p class="prompt">We need to verify your password</p>
+    <input type="password" width="50px" id="veripw">
+    <button onClick="showchangebar(<%=password%>)">Verify</button>
+    <br>
+    <p id="rightorwrong">Waiting for verification...</p>
+  </div>
+  <form method="post" action="${pageContext.request.contextPath}/changepi">
+    <div class="cif-inputbox" id="showchange" >
+      <p>Change your real name "<%=realname%>" to:</p>
+      <input id="changern" name="rninput">
+      <p>Change your address "<%=addr%>" to:</p>
+      <input id="changeaddr" name="addrinput">
+      <br>
+      <br>
+      <input  type="submit" class="btn btn-warning submitbtn" value="Submit">
+    </div>
+  </form>
+
+</div>
+
+<div id="changepwbox" class="changebox">
+  <button type="button" class="btn btn-danger" id="closechangepwbtn" onClick="showorclose('changepwbox',0)">Close</button>
+  <form method="post" action="${pageContext.request.contextPath}/changepw">
+    <div id='check-and-new'>
+      <p class="changepwprompt">Enter your original password:</p>
+      <input type="password" name="enter-ori">
+      <p class="changepwprompt">Enter your new password:</p>
+      <input name="enter-new" type='password'>
+    </div>
+    <div id='submit-changepw-btn'>
+      <input type='submit' value='Submit' class='btn btn-success' >
+    </div>
+    </form>
+</div>
+
+<%--
+<!--
 <div class = "profile">
   <h3 class="profiletitle"><a href="css/style.css"> &nbsp; &nbsp;My Profile:</a></h3>
   <div class = "profilecontent">
@@ -251,6 +346,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <p class=paddr">Your Address: <%=addr%></p>
 	</div>
 </div>
+
+-->--%>
+
 <div class="subscribe">
 	 <div class="container">
 		 <h3>NiceKey</h3>
